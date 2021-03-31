@@ -1,4 +1,4 @@
 ## My Portfolio On Flutter
 
-**Visit the link :** [Divyang's Portfolio](divyang-techavidus.github.io)
+**Visit the link :** [View Portfolio](https://divyang-techavidus.github.io/)
 
