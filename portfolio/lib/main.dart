@@ -38,21 +38,52 @@ class ExampleParallax extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            margin: EdgeInsets.fromLTRB(40, 30, 40, 0),
+            margin: EdgeInsets.fromLTRB(
+                MediaQuery.of(context).size.width < 500 ? 50 : 60, 30, 40, 0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  child: CircleAvatar(
-                    maxRadius:
-                        MediaQuery.of(context).size.width < 500 ? 30 : 60,
-                    backgroundImage: AssetImage('image/profile_pic.png'),
+                  padding: EdgeInsets.only(bottom: 20),
+                  height: MediaQuery.of(context).size.width < 500 ? 80 : 150,
+                  width: MediaQuery.of(context).size.width < 500 ? 80 : 150,
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    children: [
+                      Container(
+                        height:
+                            MediaQuery.of(context).size.width < 500 ? 50 : 120,
+                        width:
+                            MediaQuery.of(context).size.width < 500 ? 50 : 120,
+                        decoration: ShapeDecoration(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                            side: BorderSide(
+                                color: Colors.white,
+                                width: MediaQuery.of(context).size.width < 500
+                                    ? 3
+                                    : 4),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(18, 0, 18,
+                            MediaQuery.of(context).size.width < 500 ? 2 : 5),
+                        child: ClipRRect(
+                          child: Image.asset('image/profile_blank.png'),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      )
+                    ],
                   ),
                 ),
                 SizedBox(
-                  width: 20,
+                  width: MediaQuery.of(context).size.width < 500 ? 0 : 20,
                 ),
                 Container(
+                  padding: EdgeInsets.only(bottom: 10),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +98,8 @@ class ExampleParallax extends StatelessWidget {
                             letterSpacing: 1.5),
                       ),
                       SizedBox(
-                        height: 10,
+                        height:
+                            MediaQuery.of(context).size.width < 500 ? 5 : 10,
                       ),
                       Text(
                         'Software Developer @ Techavidus',
@@ -76,7 +108,10 @@ class ExampleParallax extends StatelessWidget {
                                 ? 10
                                 : 14,
                             fontWeight: FontWeight.w100,
-                            letterSpacing: 2),
+                            letterSpacing:
+                                MediaQuery.of(context).size.width < 500
+                                    ? 1
+                                    : 2),
                       ),
                     ],
                   ),
@@ -84,31 +119,34 @@ class ExampleParallax extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(icon: Icon(Icons.mail), onPressed: () => {}),
-                  IconButton(
-                      icon: FaIcon(FontAwesomeIcons.github),
-                      onPressed: () => {}),
-                  IconButton(
-                      icon: FaIcon(FontAwesomeIcons.instagram),
-                      onPressed: () => {}),
-                  IconButton(
-                      icon: FaIcon(FontAwesomeIcons.facebook),
-                      onPressed: () => {}),
-                ],
+          Padding(
+            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+            child: Positioned(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(icon: Icon(Icons.mail), onPressed: () => {}),
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.github),
+                        onPressed: () => {}),
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.instagram),
+                        onPressed: () => {}),
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.facebook),
+                        onPressed: () => {}),
+                  ],
+                ),
               ),
             ),
           ),
           Card(
             color: Colors.white,
             elevation: 10,
-            margin: EdgeInsets.fromLTRB(40,
+            margin: EdgeInsets.fromLTRB(60,
                 MediaQuery.of(context).size.width < 500 ? 100 : 170, 40, 30),
             semanticContainer: true,
             shape: RoundedRectangleBorder(
