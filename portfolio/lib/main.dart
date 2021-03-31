@@ -44,41 +44,41 @@ class ExampleParallax extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  padding: EdgeInsets.only(bottom: 20),
-                  height: MediaQuery.of(context).size.width < 500 ? 80 : 150,
-                  width: MediaQuery.of(context).size.width < 500 ? 80 : 150,
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    children: [
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 500 ? 50 : 120,
-                        width:
-                            MediaQuery.of(context).size.width < 500 ? 50 : 120,
-                        decoration: ShapeDecoration(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
-                            side: BorderSide(
-                                color: Colors.white,
-                                width: MediaQuery.of(context).size.width < 500
-                                    ? 3
-                                    : 4),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(18, 0, 18,
-                            MediaQuery.of(context).size.width < 500 ? 2 : 5),
-                        child: ClipRRect(
-                          child: Image.asset('image/profile_blank.png'),
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                // Container(
+                //   padding: EdgeInsets.only(bottom: 20),
+                //   height: MediaQuery.of(context).size.width < 500 ? 80 : 150,
+                //   width: MediaQuery.of(context).size.width < 500 ? 80 : 150,
+                //   child: Stack(
+                //     alignment: Alignment.bottomCenter,
+                //     clipBehavior: Clip.antiAliasWithSaveLayer,
+                //     children: [
+                //       Container(
+                //         height:
+                //             MediaQuery.of(context).size.width < 500 ? 50 : 120,
+                //         width:
+                //             MediaQuery.of(context).size.width < 500 ? 50 : 120,
+                //         decoration: ShapeDecoration(
+                //           shape: RoundedRectangleBorder(
+                //             borderRadius: BorderRadius.circular(100),
+                //             side: BorderSide(
+                //                 color: Colors.white,
+                //                 width: MediaQuery.of(context).size.width < 500
+                //                     ? 3
+                //                     : 4),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(18, 0, 18,
+                //             MediaQuery.of(context).size.width < 500 ? 2 : 5),
+                //         child: ClipRRect(
+                //           child: Image.asset('image/profile_blank.png'),
+                //           borderRadius: BorderRadius.circular(100),
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width < 500 ? 0 : 20,
                 ),
@@ -119,30 +119,30 @@ class ExampleParallax extends StatelessWidget {
               ],
             ),
           ),
-          // Padding(
-          //   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          //   child: Positioned(
-          //     child: Align(
-          //       alignment: Alignment.centerLeft,
-          //       child: Column(
-          //         crossAxisAlignment: CrossAxisAlignment.center,
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: [
-          //           IconButton(icon: Icon(Icons.mail), onPressed: () => {}),
-          //           IconButton(
-          //               icon: FaIcon(FontAwesomeIcons.github),
-          //               onPressed: () => {}),
-          //           IconButton(
-          //               icon: FaIcon(FontAwesomeIcons.instagram),
-          //               onPressed: () => {}),
-          //           IconButton(
-          //               icon: FaIcon(FontAwesomeIcons.facebook),
-          //               onPressed: () => {}),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+            child: Positioned(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(icon: Icon(Icons.mail), onPressed: () => {}),
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.github),
+                        onPressed: () => {}),
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.instagram),
+                        onPressed: () => {}),
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.facebook),
+                        onPressed: () => {}),
+                  ],
+                ),
+              ),
+            ),
+          ),
           Card(
             color: Colors.white,
             elevation: 10,
@@ -174,22 +174,21 @@ class ExampleParallax extends StatelessWidget {
               //   ),
             ),
           ),
-          // Positioned(
-          //   child: 
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: AnimatedTextKit(
-            //     animatedTexts: [
-            //       FadeAnimatedText(
-            //           '\u00a9 Divyang Mistry - Made with ❤️ in Flutter.',
-            //           textStyle: TextStyle(fontSize: 12),
-            //           duration: Duration(seconds: 10))
-            //     ],
-            //     isRepeatingAnimation: true,
-            //     repeatForever: true,
-            //   ),
-            // ),
-          // ),
+          Positioned(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  FadeAnimatedText(
+                      '\u00a9 Divyang Mistry - Made with ❤️ in Flutter.',
+                      textStyle: TextStyle(fontSize: 12),
+                      duration: Duration(seconds: 10))
+                ],
+                isRepeatingAnimation: true,
+                repeatForever: true,
+              ),
+            ),
+          ),
         ],
       ),
     );
