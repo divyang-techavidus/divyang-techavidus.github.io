@@ -119,30 +119,30 @@ class ExampleParallax extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-            child: Positioned(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(icon: Icon(Icons.mail), onPressed: () => {}),
-                    IconButton(
-                        icon: FaIcon(FontAwesomeIcons.github),
-                        onPressed: () => {}),
-                    IconButton(
-                        icon: FaIcon(FontAwesomeIcons.instagram),
-                        onPressed: () => {}),
-                    IconButton(
-                        icon: FaIcon(FontAwesomeIcons.facebook),
-                        onPressed: () => {}),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          //   child: Positioned(
+          //     child: Align(
+          //       alignment: Alignment.centerLeft,
+          //       child: Column(
+          //         crossAxisAlignment: CrossAxisAlignment.center,
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: [
+          //           IconButton(icon: Icon(Icons.mail), onPressed: () => {}),
+          //           IconButton(
+          //               icon: FaIcon(FontAwesomeIcons.github),
+          //               onPressed: () => {}),
+          //           IconButton(
+          //               icon: FaIcon(FontAwesomeIcons.instagram),
+          //               onPressed: () => {}),
+          //           IconButton(
+          //               icon: FaIcon(FontAwesomeIcons.facebook),
+          //               onPressed: () => {}),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
           Card(
             color: Colors.white,
             elevation: 10,
@@ -174,22 +174,21 @@ class ExampleParallax extends StatelessWidget {
               //   ),
             ),
           ),
-          // Positioned(
-          //   child:
-          // Align(
-          //   alignment: Alignment.bottomCenter,
-          //   child: AnimatedTextKit(
-          //     animatedTexts: [
-          //       FadeAnimatedText(
-          //           '\u00a9 Divyang Mistry - Made with ❤️ in Flutter.',
-          //           textStyle: TextStyle(fontSize: 12),
-          //           duration: Duration(seconds: 10))
-          //     ],
-          //     isRepeatingAnimation: true,
-          //     repeatForever: true,
-          //   ),
-          // ),
-          // ),
+          Positioned(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  FadeAnimatedText(
+                      '\u00a9 Divyang Mistry - Made with ❤️ in Flutter.',
+                      textStyle: TextStyle(fontSize: 12),
+                      duration: Duration(seconds: 10))
+                ],
+                isRepeatingAnimation: true,
+                repeatForever: true,
+              ),
+            ),
+          ),
         ],
       ),
     );
