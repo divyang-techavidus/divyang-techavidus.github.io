@@ -1,7 +1,10 @@
-// import 'package:animated_text_kit/animated_text_kit.dart';
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
@@ -16,9 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Center(
-          child: ExampleParallax(),
-        ),
+        body: ExampleParallax(),
       ),
     );
   }
@@ -31,17 +32,174 @@ class ExampleParallax extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Column(
-      children: [
-        for (final location in locations)
-          LocationListItem(
-            imageUrl: location.imageUrl,
-            name: location.name,
-            country: location.place,
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: Stack(
+        children: [
+          Container(
+            margin: EdgeInsets.fromLTRB(40, 30, 40, 0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  child: CircleAvatar(
+                    maxRadius:
+                        MediaQuery.of(context).size.width < 500 ? 30 : 60,
+                    backgroundImage: AssetImage('image/profile_pic.png'),
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Divyang Mistry',
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width < 500
+                                ? 20
+                                : 40,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: 1.5),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Software Developer @ Techavidus',
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width < 500
+                                ? 10
+                                : 14,
+                            fontWeight: FontWeight.w100,
+                            letterSpacing: 2),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-      ],
-    ));
+          Positioned(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(icon: Icon(Icons.mail), onPressed: () => {}),
+                  IconButton(
+                      icon: FaIcon(FontAwesomeIcons.github),
+                      onPressed: () => {}),
+                  IconButton(
+                      icon: FaIcon(FontAwesomeIcons.instagram),
+                      onPressed: () => {}),
+                  IconButton(
+                      icon: FaIcon(FontAwesomeIcons.facebook),
+                      onPressed: () => {}),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            color: Colors.white,
+            elevation: 10,
+            margin: EdgeInsets.fromLTRB(40,
+                MediaQuery.of(context).size.width < 500 ? 100 : 170, 40, 30),
+            semanticContainer: true,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Container(
+              child: IntroPage(),
+              // SingleChildScrollView(
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: [
+              //       IntroPage(),
+              // SizedBox(
+              //   height: 500,
+              // ),
+              // for (final location in locations)
+              //   LocationListItem(
+              //     imageUrl: location.imageUrl,
+              //     name: location.name,
+              //     country: location.place,
+              //   ),
+              //       ],
+              //     ),
+              //   ),
+            ),
+          ),
+          Positioned(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  FadeAnimatedText(
+                      '\u00a9 Divyang Mistry - Made with ❤️ in Flutter.',
+                      textStyle: TextStyle(fontSize: 12),
+                      duration: Duration(seconds: 10))
+                ],
+                isRepeatingAnimation: true,
+                repeatForever: true,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class IntroPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Developing Apps in :',
+              style: TextStyle(fontSize: 30, color: Colors.black),
+            ),
+            AnimatedTextKit(
+              animatedTexts: [
+                TypewriterAnimatedText(
+                  'Flutter',
+                  cursor: '|',
+                  speed: Duration(milliseconds: 100),
+                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                TypewriterAnimatedText(
+                  'ReactJS',
+                  cursor: '|',
+                  speed: Duration(milliseconds: 100),
+                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                TypewriterAnimatedText(
+                  'Angular',
+                  cursor: '|',
+                  speed: Duration(milliseconds: 100),
+                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+              ],
+              isRepeatingAnimation: true,
+              repeatForever: true,
+              // onTap: () {
+              //   print("Tap Event");
+              // },
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -63,14 +221,14 @@ class LocationListItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
       child: AspectRatio(
-        aspectRatio: 16 / 7.5,
+        aspectRatio: 16 / 6,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: Stack(
             children: [
               _buildParallaxBackground(context),
               // _buildGradient(),
-              _buildTitleAndSubtitle(context),
+              // _buildTitleAndSubtitle(context),
             ],
           ),
         ),
@@ -117,19 +275,6 @@ class LocationListItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // FadeAnimatedTextKit(
-          //     repeatForever: true,
-          //     onTap: () {
-          //       print("Tap Event");
-          //     },
-          //     text: [
-          //       "My life in FLUTTER",
-          //       "My life in REACT",
-          //       "My life in NODE",
-          //       "My life in ANGULAR"
-          //     ],
-          //     textStyle: TextStyle(fontSize: 40.0, fontFamily: "Horizon"),
-          //   ),
           Text(
             name,
             style: const TextStyle(
