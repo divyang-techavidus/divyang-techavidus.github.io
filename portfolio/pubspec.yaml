@@ -49,7 +49,12 @@ flutter:
   assets:
     - image/profile.png
     - image/profile_blank.png
-  #   - images/a_dot_ham.jpeg
+    - image/pexels-skitterphoto-15812.jpg
+    - image/pexels-pixabay-159711.jpg
+    - image/pexels-mike-1178683.jpg
+    - image/pexels-kevin-ku-577585.jpg
+    - image/pexels-anna-shvets-5218003.jpg
+    - image/IMG_20200104_164331_Bokeh.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
